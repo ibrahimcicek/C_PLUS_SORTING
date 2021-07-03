@@ -2,6 +2,25 @@
 
 using namespace std;
 #define MAXI 50
+void selectionshort(int dizi[], int boyut)
+{
+	int minimum;
+	int minimum_index;
+	for (int i = 0; i < boyut - 1; i++)
+	{
+		minimum = dizi[i];
+		for (int j = i + 1; j < boyut; j++)
+		{
+			if (dizi[j] < minimum)
+			{
+				minimum = dizi[j];
+				dizi[j] = dizi[i];
+				dizi[i] = minimum;
+			}
+
+		}
+	}
+}
 
 
 void bubbleshort(int dizi[], int boyut)
@@ -33,7 +52,8 @@ int main()
 		cin >> sayi_dizisi[i];
 	}
 	cout << endl;
-	bubbleshort(sayi_dizisi, boyut);
+	//bubbleshort(sayi_dizisi, boyut);
+	selectionshort(sayi_dizisi,boyut);
 	for (int i = 0; i <boyut; i++)
 	{
 		cout << sayi_dizisi[i] << ",";
